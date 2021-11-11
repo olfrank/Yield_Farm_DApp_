@@ -16,7 +16,7 @@ describe("crtFarm", ()=>{
     const daiAmount: BigNumber = ethers.utils.parseEther("25000");
 
     beforeEach(async()=>{
-        const CrtFarm = await ethers.getContractFactory("TokenFarm");
+        const CrtFarm = await ethers.getContractFactory("CarrotFarm");
         const CrtToken = await ethers.getContractFactory("Carrot");
         const MockDai = await ethers.getContractFactory("MockERC20");
 
@@ -96,7 +96,6 @@ describe("crtFarm", ()=>{
             
             expect(await crtFarm.connect(alice).getStakeBal()).to.eq(0);
             await expect(crtFarm.connect(alice).unstake(toTransfer)).to.be.revertedWith("Nothing to unstake");
-            expect(await crtFarm.connect(alice).getIsStaking()).to.eq(false);
             
         })
 
@@ -163,11 +162,11 @@ describe("crtFarm", ()=>{
 
         it("should update yield balance when unstaked", async()=>{
             // let toTransfer = ethers.utils.parseEther("5")
-            await time.increase(86400*2);
+            await time.increase(86400);
             await crtFarm.connect(alice).unstake(ethers.utils.parseEther("5"));
 
             res = await crtFarm.connect(alice).getStakeBal();
-            expect(Number(ethers.utils.formatEther(res))).to.be.approximately(10, .001);
+            expect(Number(ethers.utils.formatEther(res))).to.be.approximately(5, .001);
         })
     })
 

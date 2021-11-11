@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./CarrotToken.sol";
 import "hardhat/console.sol";
 
-contract TokenFarm {
+contract CarrotFarm {
     //userAddress => stakingBal
     mapping(address => uint256) stakingBalance;
     mapping(address => bool) public isStaking;
