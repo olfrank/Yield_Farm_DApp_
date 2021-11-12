@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/OllieFrancis/Documents/Ethereum/YieldFarming/contracts/CarrotFarm.sol": {
-      "lastModificationDate": 1636649714266,
-      "contentHash": "689de302535f9ec2cc32dcb77d2a645f",
+      "lastModificationDate": 1636651617554,
+      "contentHash": "d8aa34761536df9c98e3249366bef5b1",
       "sourceName": "contracts/CarrotFarm.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -37,7 +37,7 @@
         "^0.8.4"
       ],
       "artifacts": [
-        "TokenFarm"
+        "CarrotFarm"
       ]
     },
     "/Users/OllieFrancis/Documents/Ethereum/YieldFarming/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {

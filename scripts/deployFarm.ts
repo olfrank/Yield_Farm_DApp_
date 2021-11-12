@@ -9,10 +9,17 @@ const main = async()=>{
     const mockDai = await MockERC20.deploy("MockDai", "mDai");
     console.log(`MockDai address is: ${mockDai.address}`);
 
+    const CrtToken = await ethers.getContractFactory("Carrot");
+    const crtToken = await CrtToken.deploy();
+    console.log(`Carrot Token address is: ${crtToken.address}`);
+
     const CrtFarm = await ethers.getContractFactory("CarrotFarm");
-    const crtFarm = await CrtFarm.deploy();
+    const crtFarm = await CrtFarm.deploy(mockDai.address, crtToken.address);
     console.log(`CarrotFarm address is: ${crtFarm.address}`);
-    
+
+    await crtToken._transferOwnership(crtFarm.address);
+    console.log(`Carrot Token ownership transferred to: ${crtFarm.address} (crtFarm address)`);
+
 
 }
 
